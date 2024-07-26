@@ -17,6 +17,11 @@ describe('burgerConstructor', () => {
     );
   });
 
+  afterEach(() => {
+    cy.clearLocalStorage();
+    cy.clearAllCookies();
+  });
+
   it('должен обрабатывать добавление булок и начинки', () => {
     cy.visit('/');
     cy.wait('@getIngredients');

@@ -1,4 +1,4 @@
-describe('should add ingredients', () => {
+describe('burgerConstructor', () => {
   beforeEach(() => {
     // Загрузка моковых данных
     cy.fixture('ingredients.json').as('ingredientsData');
@@ -18,7 +18,7 @@ describe('should add ingredients', () => {
   });
 
   it('должен обрабатывать добавление булок и начинки', () => {
-    cy.visit('http://localhost:4000/');
+    cy.visit('/');
     cy.wait('@getIngredients');
 
     // Ожидание рендера компонента
@@ -37,7 +37,7 @@ describe('should add ingredients', () => {
     // Проверка присутствия кнопки "Добавить"
     cy.contains('Добавить').should('exist').click();
 
-    // Ожидание появления булок
+    // Проверка присутствия булок в конструкторе после добавления
     cy.get('[data-cy=bun-top]').should('exist');
     cy.get('[data-cy=bun-bottom]').should('exist');
     cy.get('[data-cy=bun-top]').contains('Краторная булка N-200i (верх)');
@@ -99,7 +99,7 @@ describe('should add ingredients', () => {
   });
 
   it('должен обрабатывать открытие и закрытие модальных окон', () => {
-    cy.visit('http://localhost:4000/');
+    cy.visit('/');
     cy.wait('@getIngredients');
 
     // Проверка открытия модального окна ингредиента
@@ -126,7 +126,7 @@ describe('should add ingredients', () => {
     // Посещаем страницу логина и ждем загрузки моковых данных
     cy.setCookie('accessToken', 'mock-access-token');
     cy.setCookie('refreshToken', 'mock-refresh-token');
-    cy.visit('http://localhost:4000/login');
+    cy.visit('/login');
     cy.wait(['@getUserAuth', '@getIngredients']);
 
     // Проверка авторизации

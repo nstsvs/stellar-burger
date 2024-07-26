@@ -17,7 +17,7 @@ describe('should add ingredients', () => {
     );
   });
 
-  it('should add buns and filling', () => {
+  it('должен обрабатывать добавление булок и начинки', () => {
     cy.visit('http://localhost:4000/');
     cy.wait('@getIngredients');
 
@@ -98,7 +98,7 @@ describe('should add ingredients', () => {
     });
   });
 
-  it('should open and close modals', () => {
+  it('должен обрабатывать открытие и закрытие модальных окон', () => {
     cy.visit('http://localhost:4000/');
     cy.wait('@getIngredients');
 
@@ -122,7 +122,7 @@ describe('should add ingredients', () => {
     cy.get('[data-cy=modal]').should('not.exist');
   });
 
-  it('should login and create order', () => {
+  it('должен обрабатывать авторизацию пользователя и создание заказа', () => {
     // Посещаем страницу логина и ждем загрузки моковых данных
     cy.setCookie('accessToken', 'mock-access-token');
     cy.setCookie('refreshToken', 'mock-refresh-token');

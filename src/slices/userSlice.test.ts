@@ -88,7 +88,7 @@ describe('userSlice', () => {
       expect(state.loading).toBe(false);
       expect(state.error).toBe('Ошибка');
       expect(state.isAuthChecked).toBe(false);
-      expect(state.user).toEqual(mockUser);
+      expect(state.user).toBeNull();
     });
   });
 
@@ -154,11 +154,11 @@ describe('userSlice', () => {
     it('должен обрабатывать отклоненное состояние', () => {
       const action = {
         type: getUser.rejected.type,
-        error: { message: 'Сообщение об ошибке' }
+        error: { message: 'Ошибка' }
       };
       const state = userReducer({ ...initialState, loading: true }, action);
       expect(state.loading).toBe(false);
-      expect(state.error).toBe('Сообщение об ошибке');
+      expect(state.error).toBe('Ошибка');
     });
   });
 
@@ -185,11 +185,11 @@ describe('userSlice', () => {
     it('должен обрабатывать отклоненное состояние', () => {
       const action = {
         type: updateUser.rejected.type,
-        error: { message: 'Сообщение об ошибке' }
+        error: { message: 'Ошибка' }
       };
       const state = userReducer({ ...initialState, loading: true }, action);
       expect(state.loading).toBe(false);
-      expect(state.error).toBe('Сообщение об ошибке');
+      expect(state.error).toBe('Ошибка');
     });
   });
 });

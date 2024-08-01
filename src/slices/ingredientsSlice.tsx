@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getIngredientsApi } from '@api';
+// Ошибка в алиасе, пока возвращаю старый путь
+import { getIngredientsApi } from '../utils/burger-api';
 import { TIngredient } from '@utils-types';
 
 interface IngredientsState {

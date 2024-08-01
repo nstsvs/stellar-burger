@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { orderBurgerApi } from '@api';
+// Ошибка в алиасе, пока возвращаю старый путь
+import { orderBurgerApi } from '../utils/burger-api';
 import { TOrder } from '@utils-types';
 
 interface OrderState {
